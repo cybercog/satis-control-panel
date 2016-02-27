@@ -15,6 +15,9 @@ class RepositoryTest extends BaseTestCase
     {
         $repositoryUrl = 'https://github.com/realshadow/satis-control-panel.git';
 
+        $response = $this->getRepository($repositoryUrl);
+        $this->assertJsonStringEqualsJsonString('[]', $response);
+
         $this->createRepository($repositoryUrl, 'vcs');
         $response = $this->getRepository($repositoryUrl);
 
